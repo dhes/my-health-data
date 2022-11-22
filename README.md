@@ -2,7 +2,7 @@
 
 I'm creating this SMART on FHIR App for my own personal use; it's designed to help me retrieve my own data in FHIR.
 
-No one other than me (Josh Mandel) should share their records with it.
+No one other than me (Dan Heslinga) should share their records with it.
 
 ## Dev
 
@@ -14,7 +14,7 @@ No one other than me (Josh Mandel) should share their records with it.
 * browse to http://localhost:1234/index.html
 
 ```
-parcel build src/*.html  --public-url https://joshuamandel.com/my-health-data/
+parcel build src/*.html  --public-url https://heslingamd.com/my-health-data/
 git checkout gh-pages
 git rm *.html *.js *.map
 cp -r dist/* .
