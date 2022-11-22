@@ -1,4 +1,5 @@
-import uuid from "uuid";
+// import uuid from "uuid";
+import {v4 as UUIDv4} from 'UUID' ;
 import queryString from "query-string"
 
 const smartOAuthExtension = 'http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris';
@@ -37,7 +38,7 @@ const oauth = async (clientState, fetch = window.fetch) => {
 
 const authorize = (clientState, fetch = window.fetch) => {
   return new Promise((resolve, reject) => {
-    const state = uuid()
+    const state = UUIDv4()
     const authorizeRequest = {
       response_type: 'code',
       client_id: clientState.registration.client_id,
