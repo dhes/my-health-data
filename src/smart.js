@@ -1,5 +1,5 @@
 // import uuid from "uuid";
-import {v4 as UUIDv4} from 'UUID' ;
+import {v4 as UUIDv4} from 'uuid' ;
 import queryString from "query-string"
 
 const smartOAuthExtension = 'http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris';
