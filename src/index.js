@@ -5,9 +5,11 @@ import smart, {
 import queryString from "query-string"
 import endpoints from "./endpoints.js"
 
-const redirectUri = window.location.href
+console.log("window.location.href: " + window.location.href);
+const redirectUri = window.location.href // url of the current page
   .replace('index.html', 'redirect.html')
   .replace(/#.*/, '')
+console.log(redirectUri);
 
 const getRegistration = (endpoint) => ({
   redirect_uri: redirectUri, // "https://heslingamd.com/my-health-data/redirect.html",
