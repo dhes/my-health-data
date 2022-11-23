@@ -15,8 +15,8 @@ const getRegistration = (endpoint) => ({
   redirect_uri: redirectUri, // "https://heslingamd.com/my-health-data/redirect.html",
   client_id: matchTags(endpoint.tags, [
     [tags => tags.includes('smart') && tags.includes('sandbox'), 'default_client_id'],
-    [tags => tags.includes('epic') && tags.includes('sandbox'), 'c09dc775-96b6-4fd0-828a-5c2daf481ff1'],
-    [tags => tags.includes('epic') && tags.includes('production'), 'b916be73-b018-48ff-9926-1494b8dfba5e'],
+    [tags => tags.includes('epic') && tags.includes('sandbox'), 'da58337e-f498-41da-be3f-51a9b9e33e50'], // this is the registered id for fhir.epic.com my-health-data non-production 
+    [tags => tags.includes('epic') && tags.includes('production'), '21dc0e1a-2480-479e-bc1b-020f49d2da01'], // this is the registered id for fhir.epic.com my-health-data production 
   ])
 })
 
@@ -35,12 +35,13 @@ async function makeClient(fhirBaseUrl, steps = ['oauth', 'authorize', 'token']) 
 }
 
 // Eventually we'll have a UI
-let serverPick = window.location.hash.slice(1) || 'smart'
+let serverPick = window.location.hash.slice(1) || 'queens'
 let fhirServerToTest = {
   smart: endpoints[0].fhirBaseUrl,
   epic: endpoints[1].fhirBaseUrl,
   unity: 'https://epicfhir.unitypoint.org/ProdFHIR/api/FHIR/DSTU2/',
-  uw: 'https://epicproxy.hosp.wisc.edu/FhirProxy/api/FHIR/DSTU2/'
+  uw: 'https://epicproxy.hosp.wisc.edu/FhirProxy/api/FHIR/DSTU2/',
+	queens: 'https://mobileapps.queens.org/FHIR/api/FHIR/R4/'
 } [serverPick]
 
 const fhirInteraction = async (clientState, method, url, body) => {
