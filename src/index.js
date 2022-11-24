@@ -33,9 +33,10 @@ async function makeClient(fhirBaseUrl, steps = ['oauth', 'authorize', 'token']) 
   }
   return clientState
 }
-
+console.log("endpoints[1]: " + endpoints[1]);
+console.log("endpoints[1].fhirBaseUrl: " + endpoints[1].fhirBaseUrl);
 // Eventually we'll have a UI
-let serverPick = window.location.hash.slice(1) || 'smart'
+let serverPick = window.location.hash.slice(1) || 'queens'
 let fhirServerToTest = {
   smart: endpoints[0].fhirBaseUrl,
   epic: endpoints[1].fhirBaseUrl,
