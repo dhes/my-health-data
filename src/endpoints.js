@@ -8,6 +8,10 @@ const sandboxEndpoints = [{
     fhirBaseUrl: 'https://open-ic.epic.com/argonaut/api/FHIR/Argonaut/',
     name: 'Epic Argonaut Sandbox',
     tags: ['sandbox', 'epic']
+}, {
+	fhirBaseUrl: 'https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/',
+	name: 'Fhir.epic.com Sandbox - R4', // added by Dan
+	tags: ['sandbox', 'epic']
 }]
 
 const productionEndpoints = epicEndpointsJson
