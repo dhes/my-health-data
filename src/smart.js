@@ -43,7 +43,8 @@ const authorize = (clientState, fetch = window.fetch) => {
       response_type: 'code',
       client_id: clientState.registration.client_id,
       redirect_uri: clientState.registration.redirect_uri,
-      scope: 'launch/patient patient/*.read',
+      // scope: 'launch/patient patient/*.read', // V1 obsolete I think
+      scope: 'launch/patient patient/*.rs', // V2 equivalent
       state,
       aud: clientState.endpoint.fhirBaseUrl
     }
