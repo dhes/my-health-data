@@ -14,7 +14,7 @@ No one other than me (Dan Heslinga) should share their records with it.
 * browse to http://localhost:1234/index.html
 
 ```
-parcel build src/*.html  --public-url https://heslingamd.com/my-health-data/
+parcel build src/*.html  --public-url https://dhes.github.io/my-health-data/
 git checkout gh-pages
 git rm *.html *.js *.map
 cp -r dist/* .
