@@ -70,10 +70,11 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
   }), {})
 
   const url = clientState.endpoint.fhirBaseUrl + '/' + subIn(relativeUrl) + '?' + queryString.stringify(query)
+	console.log("url: " + url)
   return fhirInteraction(clientState, 'GET', url)
 }
 
-console.log("url: " + url)
+console.log("url: " + url) 
 
 const fhirDrainPages = async (clientState, pageIn, maxCount = -1) => {
   const page = await pageIn
