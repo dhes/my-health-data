@@ -17,6 +17,8 @@ const oauth = async (clientState, fetch = window.fetch) => { // DH The Fetch API
     endpoint.fhirBaseUrl.slice(-1) === '/' ? '' : '/'
   )
 
+	console.log("fhirBaseUrl: " + fhirBaseUrl)
+
   const metadataResponse = await fetch(
     fhirBaseUrl + 'metadata', {
       headers: {
