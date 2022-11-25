@@ -46,6 +46,8 @@ let fhirServerToTest = {
 	queens: 'https://mobileapps.queens.org/FHIR/api/FHIR/R4/'
 } [serverPick]
 
+console.log("fhirServerToTest: " + fhirServerToTest)
+
 const fhirInteraction = async (clientState, method, url, body) => {
   const httpResponse = await fetch(url, {
     method: method,
@@ -70,6 +72,8 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
   const url = clientState.endpoint.fhirBaseUrl + '/' + subIn(relativeUrl) + '?' + queryString.stringify(query)
   return fhirInteraction(clientState, 'GET', url)
 }
+
+console.log("url: " + url)
 
 const fhirDrainPages = async (clientState, pageIn, maxCount = -1) => {
   const page = await pageIn
