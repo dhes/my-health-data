@@ -12,7 +12,7 @@ const redirectUri = window.location.href // url of the current page
 console.log("redirectUri: " + redirectUri);
 
 const getRegistration = (endpoint) => ({
-  redirect_uri: redirectUri, // "https://heslingamd.com/my-health-data/redirect.html",
+  redirect_uri: redirectUri, // "https://dhes.github.il/my-health-data/redirect.html",
   client_id: matchTags(endpoint.tags, [
     [tags => tags.includes('smart') && tags.includes('sandbox'), 'default_client_id'],
     [tags => tags.includes('epic') && tags.includes('sandbox'), 'a1239704-a5a6-4c29-87ba-64b6f8b39c12'], // this is the registered id for fhir.epic.com my-health-data non-production 

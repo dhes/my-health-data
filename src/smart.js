@@ -4,7 +4,7 @@ import queryString from "query-string"
 
 const smartOAuthExtension = 'http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris';
 
-const oauth = async (clientState, fetch = window.fetch) => {
+const oauth = async (clientState, fetch = window.fetch) => { // DH The Fetch API interface allows web browser to make HTTP requests to web servers. 😀 No need for XMLHttpRequest anymore.
   const {
     endpoint
   } = clientState
@@ -91,7 +91,7 @@ export const matchTags = (tags, matchers) => matchers
   .map(([matchFn, value]) => matchFn(tags) ? value : null)
   .filter(x => x !== null)[0]
 
-export default {
+export default {		// DH object destructuring? See https://javascript.info/destructuring-assignment#object-destructuring
   oauth,
   authorize,
   token
