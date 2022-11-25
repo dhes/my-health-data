@@ -74,8 +74,6 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
   return fhirInteraction(clientState, 'GET', url)
 }
 
-console.log("url: " + url) 
-
 const fhirDrainPages = async (clientState, pageIn, maxCount = -1) => {
   const page = await pageIn
   const interim = [page]
