@@ -151,10 +151,12 @@ makeClient(fhirServerToTest).then(async c => {
 		['MedicationRequest'], // DH this works
     ['AllergyIntolerance'], // DH that's working
     ['Procedure'], // runs without error
-    ['Immunization'],
+    ['Immunization'], // works on epic
     ['DocumentReference'],
-		['Condition'],
+		// from hear I start adding things that are in epic sandbox but not yet here
+		['Condition'], // works on epic sandbox
 		// ['Medication'], // epic sandbox calls this a bad request
+		['Coverage'],
   ].map(withPatient)
 
   const queries = patientReadQueries.concat(patientSearchQueries) 
