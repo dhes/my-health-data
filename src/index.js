@@ -138,21 +138,22 @@ makeClient(fhirServerToTest).then(async c => {
   const patientSearchQueries = [
     ['Observation', {
       'category': 'laboratory'
-    }],
+    }], // runes without error
     ['Observation', {
       'category': 'vital-signs'
     }],  // DH that's working
     ['Observation', {
       'category': 'social-history'
-    }],
+    }], // runs without error
     // ['MedicationOrder'],  // ...this resource is not listed in Epic, so no luck
-  //   ['MedicationStatement'],
-	  // ['MedicationDispense'], // DH no luck with this one
+  //   ['MedicationStatement'], // not in epic list
+	  // ['MedicationDispense'], // DH no luck with this one even though it is listed in epic
 		['MedicationRequest'], // DH this works
     ['AllergyIntolerance'], // DH that's working
-    ['Procedure'],
-  //   ['Immunization'],
-  //   ['DocumentReference'],
+    ['Procedure'], // runs without error
+    ['Immunization'],
+    ['DocumentReference'],
+		['Medication'],
   ].map(withPatient)
 
   const queries = patientReadQueries.concat(patientSearchQueries) 
