@@ -136,21 +136,21 @@ makeClient(fhirServerToTest).then(async c => {
   ]
 
   const patientSearchQueries = [
-    // ['Observation', {
-    //   'category': 'laboratory'
-    // }],
+    ['Observation', {
+      'category': 'laboratory'
+    }],
     ['Observation', {
       'category': 'vital-signs'
     }],  // DH that's working
-  //   ['Observation', {
-  //     'category': 'social-history'
-  //   }],
+    ['Observation', {
+      'category': 'social-history'
+    }],
     // ['MedicationOrder'],  // ...this resource is not listed in Epic, so no luck
   //   ['MedicationStatement'],
 	  // ['MedicationDispense'], // DH no luck with this one
-		['MedicationRequest'],
+		['MedicationRequest'], // DH this works
     ['AllergyIntolerance'], // DH that's working
-  //   ['Procedure'],
+    ['Procedure'],
   //   ['Immunization'],
   //   ['DocumentReference'],
   ].map(withPatient)
