@@ -153,6 +153,7 @@ makeClient(fhirServerToTest).then(async c => {
     ['Procedure'], // runs without error
     ['Immunization'],
     ['DocumentReference'],
+		['Condition'],
 		// ['Medication'], // epic sandbox calls this a bad request
   ].map(withPatient)
 
