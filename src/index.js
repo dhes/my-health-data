@@ -135,7 +135,7 @@ makeClient(fhirServerToTest).then(async c => {
     ['Patient/{{patient}}']
   ]
 
-  const patientSearchQueries = [
+  const patientSearchQueries = [ // all comments relate to epic sandbox
     ['Observation', {
       'category': 'laboratory'
     }], // runes without error
@@ -158,30 +158,31 @@ makeClient(fhirServerToTest).then(async c => {
 		// ['Medication'], // epic sandbox calls this a bad request
 		['Coverage'],
 		// candidates:
+		// from here down if it is commented out it caused bad request (400), forbidden (403) or not found (404) error
 		['Device'],
 		['DeviceUseStatement'],
 	  ['DiagnosticReport'],
 	  ['Encounter'],
-		['EpisodeOfCare'],
-		['ExplanationOfBenefit'],
-		['FamilyMemberHistory'],
+		// ['EpisodeOfCare'],
+		// ['ExplanationOfBenefit'],
+		// ['FamilyMemberHistory'],
 		['Flag'],
 		['Goal'],
-	  ['ImmunizationRecommendation'],
-		['List'],
-	  ['Location'],
+	  // ['ImmunizationRecommendation'],
+		// ['List'],
+	  // ['Location'],
     ['NutritionOrder'],
-		['Observation'], // overlaps with three above
-		['Practitioner'],
-		['Provenance'],
-		['Questionnaire'],
+		// ['Observation'], // overlaps with three above
+		// ['Practitioner'],
+		// ['Provenance'],
+		// ['Questionnaire'],
 		['QuestionnaireResponse'],
-		['RelatedPerson'],
-	  ['RequestGroup'],
-	  ['ResearchStudy'],
+		// ['RelatedPerson'],
+	  // ['RequestGroup'],
+	  // ['ResearchStudy'],
 		['ServiceRequest'],
-		['Specimen'],
-		['Substance'],
+		// ['Specimen'],
+		// ['Substance'],
 	  ['Task'],
   ].map(withPatient)
 
