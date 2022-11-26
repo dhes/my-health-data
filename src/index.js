@@ -155,6 +155,7 @@ makeClient(fhirServerToTest).then(async c => {
   ].map(withPatient)
 
   const queries = patientReadQueries.concat(patientSearchQueries) 
+	console.log("queries: " + queries)
   // const queries = patientReadQueries // DH that worked, got the Patient resource and of course nothing else. 
   const pending = queries
     .map((args) => client.get(...args))
