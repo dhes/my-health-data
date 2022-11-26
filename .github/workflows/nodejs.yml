@@ -32,4 +32,5 @@ jobs:
         cp -r dist/* .
         git add *.js *.html *.map
         git commit -m "Build"
-        git push -u gh-pages
+        git remote add withauth https://dhes.github.com/my-health-data
+        git push withauth -u gh-pages
