@@ -153,7 +153,7 @@ makeClient(fhirServerToTest).then(async c => {
     ['Procedure'], // runs without error
     ['Immunization'],
     ['DocumentReference'],
-		['Medication'],
+		// ['Medication'], // epic sandbox calls this a bad request
   ].map(withPatient)
 
   const queries = patientReadQueries.concat(patientSearchQueries) 
