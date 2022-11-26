@@ -157,6 +157,32 @@ makeClient(fhirServerToTest).then(async c => {
 		['Condition'], // works on epic sandbox
 		// ['Medication'], // epic sandbox calls this a bad request
 		['Coverage'],
+		// candidates:
+		['Device'],
+		['DeviceUseStatement'],
+	  ['DiagnosticReport'],
+	  ['Encounter'],
+		['EpisodeOfCare'],
+		['ExplanationOfBenefit'],
+		['FamilyMemberHistory'],
+		['Flag'],
+		['Goal'],
+	  ['ImmunizationRecommendation'],
+		['List'],
+	  ['Location'],
+    ['NutritionOrder'],
+		['Observation'], // overlaps with three above
+		['Practitioner'],
+		['Provenance'],
+		['Questionnaire'],
+		['QuestionnaireResponse'],
+		['RelatedPerson'],
+	  ['RequestGroup'],
+	  ['ResearchStudy'],
+		['ServiceRequest'],
+		['Specimen'],
+		['Substance'],
+	  ['Task'],
   ].map(withPatient)
 
   const queries = patientReadQueries.concat(patientSearchQueries) 
