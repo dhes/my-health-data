@@ -141,14 +141,14 @@ makeClient(fhirServerToTest).then(async c => {
     // }],
     ['Observation', {
       'category': 'vital-signs'
-    }],
+    }],  // DH that's working
   //   ['Observation', {
   //     'category': 'social-history'
   //   }],
-  //   ['MedicationOrder'],
+    ['MedicationOrder'],  // ...trying
   //   ['MedicationStatement'],
 	  // ['MedicationDispense'], // DH no luck with this one
-    ['AllergyIntolerance'],
+    ['AllergyIntolerance'], // DH that's working
   //   ['Procedure'],
   //   ['Immunization'],
   //   ['DocumentReference'],
