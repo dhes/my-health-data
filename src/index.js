@@ -153,7 +153,8 @@ makeClient(fhirServerToTest).then(async c => {
     ['DocumentReference'],
   ].map(withPatient)
 
-  const queries = patientReadQueries.concat(patientSearchQueries)
+  // const queries = patientReadQueries.concat(patientSearchQueries)
+  const queries = patientReadQueries
   const pending = queries
     .map((args) => client.get(...args))
     .map(client.drainPages)
