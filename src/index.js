@@ -136,25 +136,25 @@ makeClient(fhirServerToTest).then(async c => {
   ]
 
   const patientSearchQueries = [
-    ['Observation', {
-      'category': 'laboratory'
-    }],
+    // ['Observation', {
+    //   'category': 'laboratory'
+    // }],
     ['Observation', {
       'category': 'vital-signs'
     }],
-    ['Observation', {
-      'category': 'social-history'
-    }],
-    ['MedicationOrder'],
-    ['MedicationStatement'],
-    ['AllergyIntolerance'],
-    ['Procedure'],
-    ['Immunization'],
-    ['DocumentReference'],
+  //   ['Observation', {
+  //     'category': 'social-history'
+  //   }],
+  //   ['MedicationOrder'],
+  //   ['MedicationStatement'],
+  //   ['AllergyIntolerance'],
+  //   ['Procedure'],
+  //   ['Immunization'],
+  //   ['DocumentReference'],
   ].map(withPatient)
 
-  // const queries = patientReadQueries.concat(patientSearchQueries)
-  const queries = patientReadQueries
+  const queries = patientReadQueries.concat(patientSearchQueries) 
+  // const queries = patientReadQueries // DH that worked, got the Patient resource and of course nothing else. 
   const pending = queries
     .map((args) => client.get(...args))
     .map(client.drainPages)
