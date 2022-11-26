@@ -145,9 +145,10 @@ makeClient(fhirServerToTest).then(async c => {
   //   ['Observation', {
   //     'category': 'social-history'
   //   }],
-    ['MedicationOrder'],  // ...trying
+    // ['MedicationOrder'],  // ...this resource is not listed in Epic, so no luck
   //   ['MedicationStatement'],
 	  // ['MedicationDispense'], // DH no luck with this one
+		['MedicationRequest'],
     ['AllergyIntolerance'], // DH that's working
   //   ['Procedure'],
   //   ['Immunization'],
