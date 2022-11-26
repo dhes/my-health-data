@@ -147,7 +147,7 @@ makeClient(fhirServerToTest).then(async c => {
   //   }],
   //   ['MedicationOrder'],
   //   ['MedicationStatement'],
-	  ['MedicationDispense',{}],
+	  ['MedicationDispense', {'category': 'community'}],
   //   ['AllergyIntolerance'],
   //   ['Procedure'],
   //   ['Immunization'],
