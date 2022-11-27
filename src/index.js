@@ -193,6 +193,8 @@ makeClient(fhirServerToTest).then(async c => {
     .map((args) => client.get(...args))
     .map(client.drainPages)
 
+	console.log("pending: ", pending) 
+
   const results = await Promise.all(pending)
 
   console.log("results", results)
