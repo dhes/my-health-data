@@ -72,7 +72,8 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
 	console.log("query: ", query) // DH
 
   // const url = clientState.endpoint.fhirBaseUrl + '/' + subIn(relativeUrl) + '?' + queryString.stringify(query) // DH the '/' is not needed and causes errors
-  const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + queryString.stringify(query)
+  // const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + queryString.stringify(query) //production
+	const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '/$everything' +  // temporary
 	console.log("url: " + url)
   return fhirInteraction(clientState, 'GET', url)
 }
@@ -192,7 +193,8 @@ makeClient(fhirServerToTest).then(async c => {
 	console.log("stringify 'Patient/{{patient}']: " + queryString.stringify('Patient/{{patient}}'))
 	console.log("stringify {foo: ['Patient/{{patient}}']}: " + queryString.stringify({foo: ['Patient/{{patient}}']}))
 
-  const queries = patientReadQueries.concat(patientSearchQueries) 
+  // const queries = patientReadQueries.concat(patientSearchQueries) 
+  const queries = patientReadQueries
 
 	console.log("queries: ", queries)
 	
