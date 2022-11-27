@@ -73,7 +73,7 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
 
   // const url = clientState.endpoint.fhirBaseUrl + '/' + subIn(relativeUrl) + '?' + queryString.stringify(query) // DH the '/' is not needed and causes errors
   // const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + queryString.stringify(query) //production
-	const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '/$everything' +  // temporary
+	const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '/$everything'  // temporary
 	console.log("url: " + url)
   return fhirInteraction(clientState, 'GET', url)
 }
