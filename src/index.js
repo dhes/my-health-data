@@ -187,6 +187,7 @@ makeClient(fhirServerToTest).then(async c => {
   ].map(withPatient)
 
 	console.log("stringify ['Patient/{{patient}}']: " + queryString.stringify(['Patient/{{patient}}']))
+	console.log("stringify 'Patient/{{patient}']: " + queryString.stringify('Patient/{{patient}}'))
 
   const queries = patientReadQueries.concat(patientSearchQueries) 
 
