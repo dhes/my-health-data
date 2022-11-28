@@ -5,5 +5,5 @@ git rm *.html *.js *.map
 cp -r dist/* .
 git add *.js *.html *.map
 git commit -m "Build"
-git push
+git push origin gh-pages
 git checkout master
