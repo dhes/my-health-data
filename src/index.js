@@ -33,6 +33,8 @@ async function makeClient(fhirBaseUrl, steps = ['oauth', 'authorize', 'token']) 
   }
   return clientState
 }
+
+console.log("endpoints: ", endpoints)
 console.log("endpoints[1]: ", endpoints[1]);
 console.log("endpoints[1].fhirBaseUrl: " + endpoints[1].fhirBaseUrl);
 // Eventually we'll have a UI
