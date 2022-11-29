@@ -15,8 +15,10 @@ const getRegistration = (endpoint) => ({
   redirect_uri: redirectUri, // "https://dhes.github.il/my-health-data/redirect.html",
   client_id: matchTags(endpoint.tags, [
     [tags => tags.includes('smart') && tags.includes('sandbox'), 'default_client_id'],
-    [tags => tags.includes('epic') && tags.includes('sandbox'), 'a1239704-a5a6-4c29-87ba-64b6f8b39c12'], // this is the registered id for fhir.epic.com my-health-data non-production 
-    [tags => tags.includes('epic') && tags.includes('production'), '9f9dd593-c9e0-4935-b6ac-cff672a73139'], // this is the registered id for fhir.epic.com my-health-data production 
+    // [tags => tags.includes('epic') && tags.includes('sandbox'), 'a1239704-a5a6-4c29-87ba-64b6f8b39c12'], // my-health-data non-production 
+    // [tags => tags.includes('epic') && tags.includes('production'), '9f9dd593-c9e0-4935-b6ac-cff672a73139'], // my-health-data production 
+    [tags => tags.includes('epic') && tags.includes('sandbox'), 'e2a16942-d018-4c87-a5cf-56ddd1e42b0a'], // uscdi-only-test non-production 
+    [tags => tags.includes('epic') && tags.includes('production'), '38ba791f-abac-458f-85fa-c2690bd7bbe0'], // uscdi-only-test production 
   ])
 })
 
