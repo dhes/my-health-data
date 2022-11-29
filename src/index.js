@@ -38,7 +38,7 @@ console.log("endpoints: ", endpoints)
 console.log("endpoints[1]: ", endpoints[1]);
 console.log("endpoints[1].fhirBaseUrl: " + endpoints[1].fhirBaseUrl);
 // Eventually we'll have a UI
-let serverPick = window.location.hash.slice(1) || 'epicSandbox'
+let serverPick = window.location.hash.slice(1) || 'epicProduction'
 let fhirServerToTest = {
   smart: endpoints[0].fhirBaseUrl, // smart sandbox
   // epic: endpoints[1].fhirBaseUrl, //older argonaut epic sandbox endpoint
