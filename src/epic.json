@@ -1763,6 +1763,10 @@
     {
       "OrganizationName": "Yuma Regional Medical Center",
       "FHIRPatientFacingURI": "https://yrmccare1.yumaregional.org/FHIR/api/FHIR/DSTU2/"
+    },
+    {
+      "OrganizationName": "Hawaii Pacific Health",
+      "FHIRPatientFacingURI": "https://webservices.hawaiipacifichealth.org/fhir/api/FHIR/R4/"
     }
   ]
 }
