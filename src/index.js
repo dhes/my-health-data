@@ -146,7 +146,7 @@ makeClient(fhirServerToTest).then(async c => {
   const patientSearchQueries = [ // all comments relate to epic sandbox
     ['Observation', {
       'category': 'laboratory'
-    }], // runes without error
+    }], // runs without error
     ['Observation', {
       'category': 'vital-signs'
     }],  // DH that's working
@@ -164,34 +164,34 @@ makeClient(fhirServerToTest).then(async c => {
 		// from hear I start adding things that are in epic sandbox but not yet here
 		['Condition'], // works on epic sandbox
 		// ['Medication'], // epic sandbox calls this a bad request
-		['Coverage'],
+		// ['Coverage'], // fails when Epic client registration resources are limited to USCDI
 		// candidates:
 		// from here down if it is commented out it caused bad request (400), forbidden (403) or not found (404) error
 		['Device'],
-		['DeviceUseStatement'],
+		// ['DeviceUseStatement'], // fails when Epic client registration resources are limited to USCDI
 	  ['DiagnosticReport'],
 	  ['Encounter'],
 		// ['EpisodeOfCare'],
 		// ['ExplanationOfBenefit'],
 		// ['FamilyMemberHistory'],
-		['Flag'],
+		// ['Flag'], // fails when Epic client registration resources are limited to USCDI
 		['Goal'],
 	  // ['ImmunizationRecommendation'],
 		// ['List'],
 	  // ['Location'],
-    ['NutritionOrder'],
+    // ['NutritionOrder'], // fails when Epic client registration resources are limited to USCDI
 		// ['Observation'], // overlaps with three above
 		// ['Practitioner'],
 		// ['Provenance'],
 		// ['Questionnaire'],
-		['QuestionnaireResponse'],
+		// ['QuestionnaireResponse'], // fails when Epic client registration resources are limited to USCDI
 		// ['RelatedPerson'],
 	  // ['RequestGroup'],
 	  // ['ResearchStudy'],
-		['ServiceRequest'],
+		// ['ServiceRequest'], // fails when Epic client registration resources are limited to USCDI
 		// ['Specimen'],
 		// ['Substance'],
-	  ['Task'],
+	  // ['Task'], // fails when Epic client registration resources are limited to USCDI
   ].map(withPatient)
 
 	console.log("stringify ['Patient/{{patient}}']: " + queryString.stringify(['Patient/{{patient}}']))
