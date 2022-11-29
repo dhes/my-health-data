@@ -153,8 +153,8 @@ makeClient(fhirServerToTest).then(async c => {
     ['Observation', {
       'category': 'social-history'
     }], // runs without error
-    // ['MedicationOrder'],  // ...this resource is not listed in Epic, so no luck
-  //   ['MedicationStatement'], // not in epic list
+    ['MedicationOrder'],  // ...this resource is not listed in Epic, so no luck; try again with USCDI
+    ['MedicationStatement'], // not in epic list; is in USCDI
 	  // ['MedicationDispense'], // DH no luck with this one even though it is listed in epic
 		['MedicationRequest'], // DH this works
     ['AllergyIntolerance'], // DH that's working
@@ -163,7 +163,7 @@ makeClient(fhirServerToTest).then(async c => {
     ['DocumentReference'],
 		// from hear I start adding things that are in epic sandbox but not yet here
 		['Condition'], // works on epic sandbox
-		// ['Medication'], // epic sandbox calls this a bad request
+		['Medication'], // epic sandbox calls this a bad request, but I'll try again
 		// ['Coverage'], // fails when Epic client registration resources are limited to USCDI
 		// candidates:
 		// from here down if it is commented out it caused bad request (400), forbidden (403) or not found (404) error
@@ -178,20 +178,27 @@ makeClient(fhirServerToTest).then(async c => {
 		['Goal'],
 	  // ['ImmunizationRecommendation'],
 		// ['List'],
-	  // ['Location'],
+	  ['Location'],
     // ['NutritionOrder'], // fails when Epic client registration resources are limited to USCDI
 		// ['Observation'], // overlaps with three above
-		// ['Practitioner'],
-		// ['Provenance'],
+		['Practitioner'], // try with USCDI
+		['Provenance'], // try with USCDI
 		// ['Questionnaire'],
 		// ['QuestionnaireResponse'], // fails when Epic client registration resources are limited to USCDI
-		// ['RelatedPerson'],
+		['RelatedPerson'], // try with USCDI
 	  // ['RequestGroup'],
 	  // ['ResearchStudy'],
 		// ['ServiceRequest'], // fails when Epic client registration resources are limited to USCDI
 		// ['Specimen'],
 		// ['Substance'],
 	  // ['Task'], // fails when Epic client registration resources are limited to USCDI
+		// *** these are in USCDI but not yet tested in this app 2022-11-29
+		['Binary'], 
+		['CarePlan'], 
+		['CareTeam'],
+		['Organization'],
+		['PractitionerRole'],
+		['']
   ].map(withPatient)
 
 	console.log("stringify ['Patient/{{patient}}']: " + queryString.stringify(['Patient/{{patient}}']))
