@@ -47,7 +47,7 @@ let fhirServerToTest = {
   epicSandbox: endpoints[2].fhirBaseUrl, //newer epic sandbox endpoint added by dan
 	// HPH 444
 	// Queens
-  epicProduction: endpoints[444].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
+  epicProduction: endpoints[367].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
   unity: 'https://epicfhir.unitypoint.org/ProdFHIR/api/FHIR/DSTU2/',
   uw: 'https://epicproxy.hosp.wisc.edu/FhirProxy/api/FHIR/DSTU2/',
 	// queens: 'https://mobileapps.queens.org/FHIR/api/FHIR/R4/'
