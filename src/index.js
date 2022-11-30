@@ -47,10 +47,11 @@ let fhirServerToTest = {
   smart: endpoints[0].fhirBaseUrl, // smart sandbox
   // epic: endpoints[1].fhirBaseUrl, //older argonaut epic sandbox endpoint
   epicSandbox: endpoints[2].fhirBaseUrl, //newer epic sandbox endpoint added by dan
-	// Epic HPH 444
-	// Epic Queen's R4 367
-	// EPic Queen's DSTU2 366
-  epicProduction: endpoints[3].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
+	// Epic HPH 446
+	// Epic Queen's R4 369
+	// EPic Queen's DSTU2 368
+  epicProduction: endpoints[446].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
+  cernerSandbox: endpoints[4].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
   unity: 'https://epicfhir.unitypoint.org/ProdFHIR/api/FHIR/DSTU2/',
   uw: 'https://epicproxy.hosp.wisc.edu/FhirProxy/api/FHIR/DSTU2/',
 	// queens: 'https://mobileapps.queens.org/FHIR/api/FHIR/R4/'
