@@ -196,7 +196,7 @@ makeClient(fhirServerToTest).then(async c => {
 		// ['Binary'], //  -> no good
 		// ['CarePlan'], // -> bad request
 		['CareTeam'],
-		['Organization'], // -> bad request
+		// ['Organization'], // -> bad request
 		// ['PractitionerRole'], // -> bad request
   ].map(withPatient)
 
