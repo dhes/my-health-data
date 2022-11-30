@@ -13,12 +13,13 @@ const sandboxEndpoints = [{
 	name: 'Fhir.epic.com Sandbox - R4', // added by Dan
 	tags: ['sandbox', 'epic']
 }, {
-	fhirBaseUrl: 'https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d',
+	fhirBaseUrl: 'https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/',
 	name: 'Fhir.epic.com Sandbox - DSTU2', // added by Dan
 	tags: ['sandbox', 'cerner']
 }, {
-	fhirBaseUrl: 'https://fhir-myrecord.cerner.com/R4/ec2458f2-1e24-41c8-b71b-0e701af7583d',
-	name: 'Fhir.epic.com Sandbox - R4', // added by Dan; just guessing
+	// fhirBaseUrl: 'https://fhir-myrecord.cerner.com/R4/ec2458f2-1e24-41c8-b71b-0e701af7583d/',
+	fhirBaseUrl: 'https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/',
+	name: 'Fhir.epic.com Sandbox - R4', // added by Dan
 	tags: ['sandbox', 'cerner']
 }]
 
