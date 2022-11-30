@@ -153,8 +153,8 @@ makeClient(fhirServerToTest).then(async c => {
     ['Observation', {
       'category': 'social-history'
     }], // runs without error
-    ['MedicationOrder'],  // ...this resource is not listed in Epic, so no luck; try again with USCDI
-    ['MedicationStatement'], // not in epic list; is in USCDI
+    // ['MedicationOrder'],  // ...this resource is not listed in Epic, so no luck; try again with USCDI -> no good
+    // ['MedicationStatement'], // not in epic list; is in USCDI  -> no good
 	  // ['MedicationDispense'], // DH no luck with this one even though it is listed in epic
 		['MedicationRequest'], // DH this works
     ['AllergyIntolerance'], // DH that's working
@@ -182,10 +182,10 @@ makeClient(fhirServerToTest).then(async c => {
     // ['NutritionOrder'], // fails when Epic client registration resources are limited to USCDI
 		// ['Observation'], // overlaps with three above
 		['Practitioner'], // try with USCDI
-		['Provenance'], // try with USCDI
+		// ['Provenance'], // try with USCDI -> no good
 		// ['Questionnaire'],
 		// ['QuestionnaireResponse'], // fails when Epic client registration resources are limited to USCDI
-		['RelatedPerson'], // try with USCDI
+		// ['RelatedPerson'], // try with USCDI -> no good
 	  // ['RequestGroup'],
 	  // ['ResearchStudy'],
 		// ['ServiceRequest'], // fails when Epic client registration resources are limited to USCDI
@@ -193,7 +193,7 @@ makeClient(fhirServerToTest).then(async c => {
 		// ['Substance'],
 	  // ['Task'], // fails when Epic client registration resources are limited to USCDI
 		// *** these are in USCDI but not yet tested in this app 2022-11-29
-		['Binary'], 
+		// ['Binary'], //  -> no good
 		['CarePlan'], 
 		['CareTeam'],
 		['Organization'],
