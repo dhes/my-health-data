@@ -48,7 +48,7 @@ let fhirServerToTest = {
 	// Epic HPH 444
 	// Epic Queen's R4 367
 	// EPic Queen's DSTU2 366
-  epicProduction: endpoints[444].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
+  epicProduction: endpoints[3].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
   unity: 'https://epicfhir.unitypoint.org/ProdFHIR/api/FHIR/DSTU2/',
   uw: 'https://epicproxy.hosp.wisc.edu/FhirProxy/api/FHIR/DSTU2/',
 	// queens: 'https://mobileapps.queens.org/FHIR/api/FHIR/R4/'
@@ -77,7 +77,7 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
     [k]: subIn(queryIn[k])
   }), {})
 
-	console.log("query: ", query) // DH
+	// console.log("query: ", query) // DH
 
   // const url = clientState.endpoint.fhirBaseUrl + '/' + subIn(relativeUrl) + '?' + queryString.stringify(query) // DH the '/' is not needed and causes errors
   const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + queryString.stringify(query) //production
