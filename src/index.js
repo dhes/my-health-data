@@ -40,12 +40,14 @@ console.log("endpoints: ", endpoints)
 console.log("endpoints[1]: ", endpoints[1]);
 console.log("endpoints[1].fhirBaseUrl: " + endpoints[1].fhirBaseUrl);
 // Eventually we'll have a UI
-let serverPick = window.location.hash.slice(1) || 'epicSandbox'
+let serverPick = window.location.hash.slice(1) || 'epicProduction'
 let fhirServerToTest = {
   smart: endpoints[0].fhirBaseUrl, // smart sandbox
   // epic: endpoints[1].fhirBaseUrl, //older argonaut epic sandbox endpoint
   epicSandbox: endpoints[2].fhirBaseUrl, //newer epic sandbox endpoint added by dan
-  epicProduction: endpoints[7].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
+	// HPH 444
+	// Queens
+  epicProduction: endpoints[444].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
   unity: 'https://epicfhir.unitypoint.org/ProdFHIR/api/FHIR/DSTU2/',
   uw: 'https://epicproxy.hosp.wisc.edu/FhirProxy/api/FHIR/DSTU2/',
 	// queens: 'https://mobileapps.queens.org/FHIR/api/FHIR/R4/'
