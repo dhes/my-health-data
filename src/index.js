@@ -20,7 +20,7 @@ const getRegistration = (endpoint) => ({
     [tags => tags.includes('epic') && tags.includes('sandbox'), 'e2a16942-d018-4c87-a5cf-56ddd1e42b0a'], // uscdi-only-test non-production 
     [tags => tags.includes('epic') && tags.includes('production'), '38ba791f-abac-458f-85fa-c2690bd7bbe0'], // uscdi-only-test production 
     [tags => tags.includes('cerner') && tags.includes('sandbox'), 'a7da8040-9a81-4495-8867-6af33e7e80d2'], 
-    // [tags => tags.includes('cerner') && tags.includes('production'), ''], // uscdi-only-test production 
+    [tags => tags.includes('cerner') && tags.includes('production'), 'a7da8040-9a81-4495-8867-6af33e7e80d2'], // uscdi-only-test production 
   ])
 })
 
