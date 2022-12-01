@@ -37,5 +37,6 @@ const cernerProductionEndpoints = cernerEndpointsJson
         tags: ['production', 'cerner']
     }))
 
-const endpoints = sandboxEndpoints.concat(epicProductionEndpoints).concat(cernerEndpointsJson)
+// const endpoints = sandboxEndpoints.concat(epicProductionEndpoints).concat(cernerEndpointsJson)
+const endpoints = sandboxEndpoints.concat(epicProductionEndpoints, cernerEndpointsJson)
 export default endpoints
