@@ -53,7 +53,7 @@ let fhirServerToTest = {
 	// Epic Queen's R4 369
 	// Epic HPH 446
   epicQueens: endpoints[369].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
-  epicHph: endpoints[446].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
+  epicHph: endpoints[446].fhirBaseUrl //epic R4 production endpoint manually added to epic.json by Dan
   // unity: 'https://epicfhir.unitypoint.org/ProdFHIR/api/FHIR/DSTU2/',
   // uw: 'https://epicproxy.hosp.wisc.edu/FhirProxy/api/FHIR/DSTU2/'
 } [serverPick]
