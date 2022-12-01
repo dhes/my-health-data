@@ -50,7 +50,8 @@ const authorize = (clientState, fetch = window.fetch) => {
       client_id: clientState.registration.client_id,
       redirect_uri: clientState.registration.redirect_uri,
       // scope: 'launch/patient patient/*.read', // V1 obsolete I think
-      scope: 'patient/*.rs', // V2 equivalent, without launch/patient
+      scope: 'patient/.rs', // V2 equivalent, without launch/patient
+      scope: 'patient/Patient.rs', // for Cerner
       state,
       aud: clientState.endpoint.fhirBaseUrl
     }
