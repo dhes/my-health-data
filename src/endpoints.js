@@ -1,4 +1,5 @@
 import epicEndpointsJson from './epic.json'
+import cernerEndpointsJson from './cerner.json'
 
 const sandboxEndpoints = [{
     fhirBaseUrl: 'http://launch.smarthealthit.org/v/r2/sim/eyJoIjoiMSJ9/fhir',
@@ -22,12 +23,19 @@ const sandboxEndpoints = [{
 	tags: ['sandbox', 'cerner']
 }]
 
-const productionEndpoints = epicEndpointsJson
+const epicProductionEndpoints = epicEndpointsJson
     .Entries.map(e => ({
         fhirBaseUrl: e.FHIRPatientFacingURI,
         name: e.OrganizationName,
         tags: ['production', 'epic']
     }))
 
-const endpoints = sandboxEndpoints.concat(productionEndpoints)
+const cernerProductionEndpoints = cernerEndpointsJson
+    .Entries.map(e => ({
+        fhirBaseUrl: e.FHIRPatientFacingURI,
+        name: e.OrganizationName,
+        tags: ['production', 'cerner']
+    }))
+
+const endpoints = sandboxEndpoints.concat(epicProductionEndpoints).concat(cernerEndpointsJson)
 export default endpoints

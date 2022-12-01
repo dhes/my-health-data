@@ -47,7 +47,8 @@ let fhirServerToTest = {
   smart: endpoints[0].fhirBaseUrl, // smart sandbox
   // epic: endpoints[1].fhirBaseUrl, //older argonaut epic sandbox endpoint
   epicSandbox: endpoints[2].fhirBaseUrl, //newer epic sandbox endpoint added by dan
-	cernerSandbox: endpoints[4].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
+	cernerSandbox: endpoints[4].fhirBaseUrl, 
+	cernerProduction: endpoints[447].fhirBaseUrl, 
   // Epic Queen's DSTU2 368
 	// Epic Queen's R4 369
 	// Epic HPH 446
