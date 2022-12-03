@@ -42,7 +42,7 @@ console.log("endpoints: ", endpoints)
 console.log("endpoints[1]: ", endpoints[1]);
 console.log("endpoints[1].fhirBaseUrl: " + endpoints[1].fhirBaseUrl);
 // Eventually we'll have a UI
-let serverPick = window.location.hash.slice(1) || 'epicSandbox'
+let serverPick = window.location.hash.slice(1) || 'smart'
 let fhirServerToTest = {
   smart: endpoints[0].fhirBaseUrl, // smart sandbox
   // epic: endpoints[1].fhirBaseUrl, //older argonaut epic sandbox endpoint
@@ -83,8 +83,18 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
 
 	// console.log("query: ", query) // DH
 
-  // const url = clientState.endpoint.fhirBaseUrl + '/' + subIn(relativeUrl) + '?' + queryString.stringify(query) // DH the '/' is not needed and causes errors
-  const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + queryString.stringify(query) //production
+  // const url = clientState.endpoint.fhirBaseUrl + '/' + subIn(relativeUrl) + '?' + queryString.stringify(query) // DH this is the original. the '/' is not needed and causes errors
+  // I use either my own custom query or the original patientSearchQueries. Using patientSearchQueries returns an array of arrays. 
+	// I am hoping that customQueryString will return a single bundle. 
+	// I want to use a querystring of _type=Condition and trigger it from a query string in href e.g. ?qs=0
+	const customQueryStrings = ['_type=Condition'] // DH
+	urlParams = new URLSearchParams(window.location.href); // DH
+	console.log(urlParams); // DH
+	console.log(urlParams.get('qs')) // DH
+	// customQueryString = customQueryStrings[urlParams.get('qs')] // DH
+	// const customQueryString =  // DH
+
+	const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + queryString.stringify(query) // ... when using patientSearchQueries
 	// const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '/$everything'  // this produces an error on epic
 	console.log("url: " + url)
   return fhirInteraction(clientState, 'GET', url)
