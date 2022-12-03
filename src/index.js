@@ -7,10 +7,10 @@ import endpoints from "./endpoints.js"
 
 console.log("window.location.href: " + window.location.href);
 const customQueryStrings = ['_type=Condition'] // DH
-const urlParams = new URLSearchParams(window.location.href); // DH
+const urlParams = new URLSearchParams(window.location.search); // DH
 console.log('urlParams: ', urlParams); // DH
-// console.log("urlParams.get('qs'): ", urlParams.get('qs')) // DH
-console.log("urlParams['qs']: ", urlParams['qs']) // DH
+console.log("urlParams.get('qs'): ", urlParams.get('qs')) // DH
+// console.log("urlParams['qs']: ", urlParams['qs']) // DH
 
 const redirectUri = window.location.href // url of the current page
   .replace('index.html', 'redirect.html')
