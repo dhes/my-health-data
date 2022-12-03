@@ -6,6 +6,11 @@ import queryString from "query-string"
 import endpoints from "./endpoints.js"
 
 console.log("window.location.href: " + window.location.href);
+const customQueryStrings = ['_type=Condition'] // DH
+urlParams = new URLSearchParams(window.location.href); // DH
+console.log('urlParams: ', urlParams); // DH
+console.log("urlParams.get('qs'): ", urlParams.get('qs')) // DH
+
 const redirectUri = window.location.href // url of the current page
   .replace('index.html', 'redirect.html')
   .replace(/#.*/, '')
@@ -87,10 +92,6 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
   // I use either my own custom query or the original patientSearchQueries. Using patientSearchQueries returns an array of arrays. 
 	// I am hoping that customQueryString will return a single bundle. 
 	// I want to use a querystring of _type=Condition and trigger it from a query string in href e.g. ?qs=0
-	const customQueryStrings = ['_type=Condition'] // DH
-	urlParams = new URLSearchParams(window.location.href); // DH
-	console.log(urlParams); // DH
-	console.log(urlParams.get('qs')) // DH
 	// customQueryString = customQueryStrings[urlParams.get('qs')] // DH
 	// const customQueryString =  // DH
 
