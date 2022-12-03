@@ -11,7 +11,6 @@ const urlParams = new URLSearchParams(window.location.href); // DH
 console.log('urlParams: ', urlParams); // DH
 // console.log("urlParams.get('qs'): ", urlParams.get('qs')) // DH
 console.log("urlParams['qs']: ", urlParams['qs']) // DH
-console.log("urlParams['qs']: ", urlParams['qs']to) // DH
 
 const redirectUri = window.location.href // url of the current page
   .replace('index.html', 'redirect.html')
