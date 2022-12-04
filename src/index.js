@@ -91,7 +91,7 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
     [k]: subIn(queryIn[k])
   }), {})
 
-	// console.log("query: ", query) // DH
+	console.log("query: ", query) // DH
 
   // const url = clientState.endpoint.fhirBaseUrl + '/' + subIn(relativeUrl) + '?' + queryString.stringify(query) // DH this is the original. the '/' is not needed and causes errors
   // I use either my own custom query or the original patientSearchQueries. Using patientSearchQueries returns an array of arrays. 
