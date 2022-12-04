@@ -14,12 +14,12 @@ console.log("urlParams.getAll('type'): ", urlParams.getAll('type'))
 // console.log("urlParams['qs']: ", urlParams['qs']) // DH
 
 let l = window.location
-// const redirectUri = window.location.href // url of the current page
-//   .replace('index.html', 'redirect.html') // doesn't work if you add a query
-//   .replace(/#.*/, '')                     // doesn't work if you add a query
-const redirectUri = l.protocol + '//' + l.hostname + l.pathname
-  .replace('index.html', 'redirect.html')
-console.log("redirectUri: " + redirectUri);
+const redirectUri = window.location.href // url of the current page
+  .replace('index.html', 'redirect.html') // doesn't work if you add a query
+  .replace(/#.*/, '')                     // doesn't work if you add a query
+// const redirectUri = l.protocol + '//' + l.hostname + l.pathname
+//   .replace('index.html', 'redirect.html')
+// console.log('redirectUri: ' + redirectUri);
 
 const getRegistration = (endpoint) => ({
   redirect_uri: redirectUri, // "https://dhes.github.il/my-health-data/redirect.html",
