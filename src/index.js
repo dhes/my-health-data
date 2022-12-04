@@ -13,9 +13,11 @@ console.log("urlParams.get('type'): ", urlParams.get('type')) // DH
 console.log("urlParams.getAll('type'): ", urlParams.getAll('type'))
 // console.log("urlParams['qs']: ", urlParams['qs']) // DH
 
-const redirectUri = window.location.href // url of the current page
-  .replace('index.html', 'redirect.html')
-  .replace(/#.*/, '')
+let l = window.location
+// const redirectUri = window.location.href // url of the current page
+//   .replace('index.html', 'redirect.html') // doesn't work if you add a query
+//   .replace(/#.*/, '')                     // doesn't work if you add a query
+const redirectUri = l.protocol + '//' + l.hostname + '/' + l.pathname + '/' + 'redirect.html'
 console.log("redirectUri: " + redirectUri);
 
 const getRegistration = (endpoint) => ({
