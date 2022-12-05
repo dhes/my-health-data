@@ -293,11 +293,11 @@ makeClient(fhirServerToTest).then(async (c) => {
       queryString.stringify({ foo: ["Patient/{{patient}}"] })
   );
 
-  const queries =
-    allRevincludeParams.length > 0
-      ? patientReadQueries
-      : patientReadQueries.concat(patientSearchQueries);
-  // const queries = patientReadQueries // DH sometimes useful for testing
+  const queries = // DH
+    allRevincludeParams.length > 0// DH
+      ? patientReadQueries// DH
+      : patientReadQueries.concat(patientSearchQueries);// DH
+  // const queries = patientReadQueries // DH sometimes useful for testing// DH
 
   console.log("queries: ", queries);
 
