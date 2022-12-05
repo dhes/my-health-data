@@ -105,6 +105,8 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
 	// customQueryString = customQueryStrings[urlParams.get('qs')] // DH
 	// const customQueryString =  // DH
 
+	console.log('customQuery before url: ', customQuery)
+  console.log('allTypeParams.length: ', allTypeParams.length)	
 	const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + queryString.stringify(query) // ... when using patientSearchQueries
 	// const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + customQuery // ... when there is a query in the url
 	// const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '/$everything'  // this produces an error on epic
