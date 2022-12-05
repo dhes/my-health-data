@@ -11,8 +11,8 @@ console.log("urlParams.get('type'): ", urlParams.get("type")); // DH
 console.log("urlParams.getAll('type'): ", urlParams.getAll("type"));
 // let allTypeParams = urlParams.getAll("type");
 let allIncludeParams = urlParams.getAll('include')
-console.log("allTypeParams: ", allTypeParams);
-console.log("allTypeParams.length > 0 : ", allTypeParams.length > 0);
+// console.log("allTypeParams: ", allTypeParams);
+// console.log("allTypeParams.length > 0 : ", allTypeParams.length > 0);
 // console.log("urlParams['qs']: ", urlParams['qs']) // DH
 // let customQuery = "_type=" + allTypeParams.join(","); // this query is ignored on Epic
 let customQuery = "_include=" + allIncludeParams.join("&"); // 
