@@ -10,12 +10,12 @@ console.log("urlParams: ", urlParams); // DH
 console.log("urlParams.get('type'): ", urlParams.get("type")); // DH
 console.log("urlParams.getAll('type'): ", urlParams.getAll("type"));
 // let allTypeParams = urlParams.getAll("type");
-let allIncludeParams = urlParams.getAll('include')
+let allRevincludeParams = urlParams.getAll('revinclude')
 // console.log("allTypeParams: ", allTypeParams);
 // console.log("allTypeParams.length > 0 : ", allTypeParams.length > 0);
 // console.log("urlParams['qs']: ", urlParams['qs']) // DH
 // let customQuery = "_type=" + allTypeParams.join(","); // this query is ignored on Epic
-let customQuery = "_include=" + allIncludeParams.join("&"); // 
+let customQuery = "_revinclude=" + allRevincludeParams.join("&"); // 
 console.log("customQuery: ", customQuery);
 
 let l = window.location;
@@ -131,9 +131,9 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
   // const customQueryString =  // DH
 
   console.log("customQuery before url: ", customQuery);
-  console.log("allIncludeParams.length: ", allIncludeParams.length);
+  console.log("allRevincludeParams.length: ", allRevincludeParams.length);
   const url =
-    allIncludeParams.length > 0
+    allRevincludeParams.length > 0
       ? clientState.endpoint.fhirBaseUrl +
         subIn(relativeUrl) +
         "?" + 
@@ -293,7 +293,7 @@ makeClient(fhirServerToTest).then(async (c) => {
   );
 
   const queries =
-    allIncludeParams.length > 0
+    allRevincludeParams.length > 0
       ? patientReadQueries
       : patientReadQueries.concat(patientSearchQueries);
   // const queries = patientReadQueries // DH sometimes useful for testing
