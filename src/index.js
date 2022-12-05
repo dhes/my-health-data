@@ -136,7 +136,7 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
     allRevincludeParams.length > 0
       ? clientState.endpoint.fhirBaseUrl +
         subIn(relativeUrl) +
-        "?" + 
+        "&" + 
         customQuery // ... when there is a query in the url
       : clientState.endpoint.fhirBaseUrl +
         subIn(relativeUrl) // +
