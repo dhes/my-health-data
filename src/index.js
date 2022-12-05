@@ -4,7 +4,7 @@ import queryString from "query-string";
 import endpoints from "./endpoints.js";
 
 // console.log("window.location.href: " + window.location.href);
-const customQueryStrings = ["_type=Condition"]; // DH
+// const customQueryStrings = ["_type=Condition"]; // DH
 const urlParams = new URLSearchParams(window.location.search); // DH
 console.log("urlParams: ", urlParams); // DH
 console.log("urlParams.get('type'): ", urlParams.get("type")); // DH
