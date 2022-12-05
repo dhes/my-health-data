@@ -15,6 +15,8 @@ let allTypeParams = urlParams.getAll('type');
 console.log("allTypeParams: ", allTypeParams);
 console.log("allTypeParams.length > 0 : ", allTypeParams.length > 0)
 // console.log("urlParams['qs']: ", urlParams['qs']) // DH
+let customQuery = '_type=' + allTypeParams.join(',')
+console.log('customQuery: ', customQuery)
 
 let l = window.location
 // const redirectUri = window.location.href // url of the current page
@@ -104,6 +106,7 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
 	// const customQueryString =  // DH
 
 	const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + queryString.stringify(query) // ... when using patientSearchQueries
+	// const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '?' + customQuery // ... when there is a query in the url
 	// const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '/$everything'  // this produces an error on epic
 	console.log("url: " + url)
   return fhirInteraction(clientState, 'GET', url)
