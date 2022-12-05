@@ -10,8 +10,8 @@ const oauth = async (clientState, fetch = window.fetch) => { // DH The Fetch API
   } = clientState
 
 	console.log("endpoint.fhirBaseUrl: " + endpoint.fhirBaseUrl); // DH
-	console.log("endpoint.fhirBaseUrl.slice(-1):" + endpoint.fhirBaseUrl.slice(-1)); // DH
-	console.log("endpoint.fhirBaseUrl.slice(-1) === '/'?: " + (endpoint.fhirBaseUrl.slice(-1) === '/').toString());
+	// console.log("endpoint.fhirBaseUrl.slice(-1):" + endpoint.fhirBaseUrl.slice(-1)); // DH
+	// console.log("endpoint.fhirBaseUrl.slice(-1) === '/'?: " + (endpoint.fhirBaseUrl.slice(-1) === '/').toString());
 
   const fhirBaseUrl = endpoint.fhirBaseUrl + (
     endpoint.fhirBaseUrl.slice(-1) === '/' ? '' : '/'

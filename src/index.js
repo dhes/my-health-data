@@ -9,8 +9,11 @@ console.log("window.location.href: " + window.location.href);
 const customQueryStrings = ['_type=Condition'] // DH
 const urlParams = new URLSearchParams(window.location.search); // DH
 console.log('urlParams: ', urlParams); // DH
-console.log("urlParams.get('type'): ", urlParams.get('type')) // DH
-console.log("urlParams.getAll('type'): ", urlParams.getAll('type'))
+console.log("urlParams.get('type'): ", urlParams.get('type')); // DH
+console.log("urlParams.getAll('type'): ", urlParams.getAll('type'));
+let allTypeParams = urlParams.getAll('type');
+console.log("allTypeParams: ", allTypeParams);
+console.log("allTypeParams.length > 0 : ", allTypeParams.length > 0)
 // console.log("urlParams['qs']: ", urlParams['qs']) // DH
 
 let l = window.location
@@ -49,8 +52,8 @@ async function makeClient(fhirBaseUrl, steps = ['oauth', 'authorize', 'token']) 
 }
 
 console.log("endpoints: ", endpoints)
-console.log("endpoints[1]: ", endpoints[1]);
-console.log("endpoints[1].fhirBaseUrl: " + endpoints[1].fhirBaseUrl);
+// console.log("endpoints[1]: ", endpoints[1]);
+// console.log("endpoints[1].fhirBaseUrl: " + endpoints[1].fhirBaseUrl);
 // Eventually we'll have a UI
 let serverPick = window.location.hash.slice(1) || 'smart'
 let fhirServerToTest = {
