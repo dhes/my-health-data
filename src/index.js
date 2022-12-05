@@ -15,7 +15,7 @@ let allRevincludeParams = urlParams.getAll('revinclude')
 // console.log("allTypeParams.length > 0 : ", allTypeParams.length > 0);
 // console.log("urlParams['qs']: ", urlParams['qs']) // DH
 // let customQuery = "_type=" + allTypeParams.join(","); // this query is ignored on Epic
-let customQuery = "_revInclude=" + allRevincludeParams.join("&"); // 
+let customQuery = "_revinclude=" + allRevincludeParams.join("&"); // 
 console.log("customQuery: ", customQuery);
 
 let l = window.location;
