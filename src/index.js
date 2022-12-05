@@ -3,17 +3,19 @@ import smart, { matchTags } from "./smart.js";
 import queryString from "query-string";
 import endpoints from "./endpoints.js";
 
-console.log("window.location.href: " + window.location.href);
+// console.log("window.location.href: " + window.location.href);
 const customQueryStrings = ["_type=Condition"]; // DH
 const urlParams = new URLSearchParams(window.location.search); // DH
 console.log("urlParams: ", urlParams); // DH
 console.log("urlParams.get('type'): ", urlParams.get("type")); // DH
 console.log("urlParams.getAll('type'): ", urlParams.getAll("type"));
-let allTypeParams = urlParams.getAll("type");
+// let allTypeParams = urlParams.getAll("type");
+let allIncludeParams = urlParams.getAll('include')
 console.log("allTypeParams: ", allTypeParams);
 console.log("allTypeParams.length > 0 : ", allTypeParams.length > 0);
 // console.log("urlParams['qs']: ", urlParams['qs']) // DH
-let customQuery = "_type=" + allTypeParams.join(",");
+// let customQuery = "_type=" + allTypeParams.join(","); // this query is ignored on Epic
+let customQuery = "_include=" + allIncludeParams.join("&"); // 
 console.log("customQuery: ", customQuery);
 
 let l = window.location;
@@ -129,9 +131,9 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
   // const customQueryString =  // DH
 
   console.log("customQuery before url: ", customQuery);
-  console.log("allTypeParams.length: ", allTypeParams.length);
+  console.log("allIncludeParams.length: ", allIncludeParams.length);
   const url =
-    allTypeParams.length > 0
+    allIncludeParams.length > 0
       ? clientState.endpoint.fhirBaseUrl +
         subIn(relativeUrl) +
         "?" + 
@@ -291,7 +293,7 @@ makeClient(fhirServerToTest).then(async (c) => {
   );
 
   const queries =
-    allTypeParams.length > 0
+    allIncludeParams.length > 0
       ? patientReadQueries
       : patientReadQueries.concat(patientSearchQueries);
   // const queries = patientReadQueries // DH sometimes useful for testing
