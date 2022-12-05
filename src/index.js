@@ -210,8 +210,8 @@ makeClient(fhirServerToTest).then(async (c) => {
     },
   ];
 
-  const patientReadQueries = [["Patient/{{patient}}"]];
-  // const patientReadQueries = [["Patient_id={{patient}}"]];
+  // const patientReadQueries = [["Patient/{{patient}}"]];
+  const patientReadQueries = [["Patient?_id={{patient}}"]];
 
   const patientSearchQueries = [
     // all comments relate to epic sandbox
