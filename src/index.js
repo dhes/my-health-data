@@ -141,7 +141,7 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
       //   customQuery // ... when there is a query in the url
 			//
 			// no "?" if patientQuery
-			query.length === 0  // empty object like patientSearchQuery
+			query.length === 1  // empty object like patientSearchQuery
 				? clientState.endpoint.fhirBaseUrl +
         subIn(relativeUrl)  // +
         // "&" + 
