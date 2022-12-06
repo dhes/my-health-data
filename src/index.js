@@ -10,12 +10,12 @@ console.log("urlParams: ", urlParams); // DH
 console.log("urlParams.get('type'): ", urlParams.get("type")); // DH
 console.log("urlParams.getAll('type'): ", urlParams.getAll("type"));
 // let allTypeParams = urlParams.getAll("type");
-let allRevincludeParams = urlParams.getAll('revinclude')
+let allRevincludeParams = urlParams.getAll("revinclude");
 // console.log("allTypeParams: ", allTypeParams);
 // console.log("allTypeParams.length > 0 : ", allTypeParams.length > 0);
 // console.log("urlParams['qs']: ", urlParams['qs']) // DH
 // let customQuery = "_type=" + allTypeParams.join(","); // this query is ignored on Epic
-let customQuery = "_revinclude=" + allRevincludeParams.join("&"); // 
+let customQuery = "_revinclude=" + allRevincludeParams.join("&"); //
 console.log("customQuery: ", customQuery);
 
 let l = window.location;
@@ -133,27 +133,29 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
   console.log("customQuery before url: ", customQuery);
   console.log("allRevincludeParams.length: ", allRevincludeParams.length);
   const url =
-		  // this was used when I was adding a _revinclude
-			// allRevincludeParams.length > 0
-      // ? clientState.endpoint.fhirBaseUrl +
-      //   subIn(relativeUrl) +
-      //   "&" + 
-      //   customQuery // ... when there is a query in the url
-			//
-			// no "?" if patientQuery
-			// query.length === 1  // empty object like patientSearchQuery
-			console.log('Object.keys(query).length === 0?:', Object.keys(query).length === 0)
-      console.log('relativeUrl: ', relativeUrl)
-			console.log('subIn(relativeUrl: ', subIn(relativeUrl))
-			Object.keys(query).length === 0  // empty object like patientSearchQuery
-				? clientState.endpoint.fhirBaseUrl +
-        subIn(relativeUrl)  // +
-        // "&" + 
-        // customQuery // ... when there is a query in the url
-      : clientState.endpoint.fhirBaseUrl +
-        subIn(relativeUrl) +
-        "?" +
-        queryString.stringify(query) // ... when using patientSearchQueries
+    // this was used when I was adding a _revinclude
+    // allRevincludeParams.length > 0
+    // ? clientState.endpoint.fhirBaseUrl +
+    //   subIn(relativeUrl) +
+    //   "&" +
+    //   customQuery // ... when there is a query in the url
+    //
+    // no "?" if patientQuery
+    // query.length === 1  // empty object like patientSearchQuery
+    console.log(
+      "Object.keys(query).length === 0?:",
+      Object.keys(query).length === 0
+    );
+  console.log("relativeUrl: ", relativeUrl);
+  console.log("subIn(relativeUrl: ", subIn(relativeUrl));
+  Object.keys(query).length === 0 // empty object like patientSearchQuery
+    ? clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) // +
+    : // "&" +
+      // customQuery // ... when there is a query in the url
+      clientState.endpoint.fhirBaseUrl +
+      subIn(relativeUrl) +
+      "?" +
+      queryString.stringify(query); // ... when using patientSearchQueries
   // const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '/$everything'  // this produces an error on epic
   console.log("url: " + url);
   return fhirInteraction(clientState, "GET", url);
@@ -306,9 +308,9 @@ makeClient(fhirServerToTest).then(async (c) => {
   );
 
   const queries = // DH
-    allRevincludeParams.length > 0// DH
-      ? patientReadQueries// DH
-      : patientReadQueries.concat(patientSearchQueries);// DH
+    allRevincludeParams.length > 0 // DH
+      ? patientReadQueries // DH
+      : patientReadQueries.concat(patientSearchQueries); // DH
   // const queries = patientReadQueries // DH sometimes useful for testing// DH
 
   console.log("queries: ", queries);
