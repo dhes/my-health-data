@@ -132,6 +132,16 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
 
   console.log("customQuery before url: ", customQuery);
   console.log("allRevincludeParams.length: ", allRevincludeParams.length);
+  console.log(
+    "Object.keys(query).length === 0?:",
+    Object.keys(query).length === 0
+  );
+  console.log("relativeUrl: ", relativeUrl);
+  console.log("subIn(relativeUrl: ", subIn(relativeUrl));
+  console.log(
+    "clientState.endpoint.fhirBaseUrl: ",
+    clientState.endpoint.fhirBaseUrl
+  );
   const url =
     // this was used when I was adding a _revinclude
     // allRevincludeParams.length > 0
@@ -142,22 +152,15 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
     //
     // no "?" if patientQuery
     // query.length === 1  // empty object like patientSearchQuery
-    console.log(
-      "Object.keys(query).length === 0?:",
-      Object.keys(query).length === 0
-    );
-  console.log("relativeUrl: ", relativeUrl);
-  console.log("subIn(relativeUrl: ", subIn(relativeUrl));
-	console.log('clientState.endpoint.fhirBaseUrl: ', clientState.endpoint.fhirBaseUrl)
-	// console.log('clientState.endpoint: ', clientState.endpoint)
-  Object.keys(query).length === 0 // empty object like patientSearchQuery
-    ? clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) // +
-    : // "&" +
-      // customQuery // ... when there is a query in the url
-      clientState.endpoint.fhirBaseUrl +
-      subIn(relativeUrl) +
-      "?" +
-      queryString.stringify(query); // ... when using patientSearchQueries
+    // console.log('clientState.endpoint: ', clientState.endpoint)
+    Object.keys(query).length === 0 // empty object like patientSearchQuery
+      ? clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) // +
+      : // "&" +
+        // customQuery // ... when there is a query in the url
+        clientState.endpoint.fhirBaseUrl +
+        subIn(relativeUrl) +
+        "?" +
+        queryString.stringify(query); // ... when using patientSearchQueries
   // const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '/$everything'  // this produces an error on epic
   console.log("url: " + url);
   return fhirInteraction(clientState, "GET", url);
