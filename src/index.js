@@ -231,7 +231,7 @@ makeClient(fhirServerToTest).then(async (c) => {
 
   // const patientReadQueries = [["Patient/{{patient}}"]];   // this produces a patient resource
   // const patientReadQueries = [["Patient?_id={{patient}}"]];  // this produces a bundle
-  const patientReadQueries = [["?patient={{patient}}"]];  // what will this one do?
+  const patientReadQueries = [["?subject=Patient/{{patient}}"]];  // what will this one do?
 
 
   const patientSearchQueries = [
