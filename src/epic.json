@@ -1458,7 +1458,7 @@
     },
     {
       "OrganizationName": "The Queen\u0027s Health Systems",
-      "FHIRPatientFacingURI": "https://mobileapps.queens.org/FHIR/api/FHIR/R4"
+      "FHIRPatientFacingURI": "https://mobileapps.queens.org/FHIR/api/FHIR/R4/"
     },
     {
       "OrganizationName": "The University of Texas Health Science Center at Houston",
