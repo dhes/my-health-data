@@ -143,6 +143,8 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
 			// no "?" if patientQuery
 			// query.length === 1  // empty object like patientSearchQuery
 			console.log('Object.keys(query).length === 0?:', Object.keys(query).length === 0)
+      console.log('relativeUrl: ', relativeUrl)
+			console.log('subIn(relativeUrl: ', subIn(relativeUrl))
 			Object.keys(query).length === 0  // empty object like patientSearchQuery
 				? clientState.endpoint.fhirBaseUrl +
         subIn(relativeUrl)  // +
