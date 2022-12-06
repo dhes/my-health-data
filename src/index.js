@@ -231,7 +231,7 @@ makeClient(fhirServerToTest).then(async (c) => {
 
   // const patientReadQueries = [["Patient/{{patient}}"]];   // this produces a patient resource
   // const patientReadQueries = [["Patient?_id={{patient}}"]];  // this produces a bundle
-  const patientReadQueries = [["?_id={{patient}}"]];  // what will this one do?
+  const patientReadQueries = [["?subject={{patient}}"]];  // what will this one do?
 
 
   const patientSearchQueries = [
@@ -301,18 +301,18 @@ makeClient(fhirServerToTest).then(async (c) => {
     // ['PractitionerRole'], // -> bad request
   ].map(withPatient);
 
-  console.log(
-    "stringify ['Patient/{{patient}}']: " +
-      queryString.stringify(["Patient/{{patient}}"])
-  );
-  console.log(
-    "stringify 'Patient/{{patient}']: " +
-      queryString.stringify("Patient/{{patient}}")
-  );
-  console.log(
-    "stringify {foo: ['Patient/{{patient}}']}: " +
-      queryString.stringify({ foo: ["Patient/{{patient}}"] })
-  );
+  // console.log(
+  //   "stringify ['Patient/{{patient}}']: " +
+  //     queryString.stringify(["Patient/{{patient}}"])
+  // );
+  // console.log(
+  //   "stringify 'Patient/{{patient}']: " +
+  //     queryString.stringify("Patient/{{patient}}")
+  // );
+  // console.log(
+  //   "stringify {foo: ['Patient/{{patient}}']}: " +
+  //     queryString.stringify({ foo: ["Patient/{{patient}}"] })
+  // );
 
   const queries = // DH
     allRevincludeParams.length > 0 // DH
