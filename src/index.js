@@ -229,8 +229,10 @@ makeClient(fhirServerToTest).then(async (c) => {
     },
   ];
 
-  // const patientReadQueries = [["Patient/{{patient}}"]];
-  const patientReadQueries = [["Patient?_id={{patient}}"]];
+  // const patientReadQueries = [["Patient/{{patient}}"]];   // this produces a patient resource
+  // const patientReadQueries = [["Patient?_id={{patient}}"]];  // this produces a bundle
+  const patientReadQueries = [["_id={{patient}}"]];  // what will this one do?
+
 
   const patientSearchQueries = [
     // all comments relate to epic sandbox
