@@ -133,11 +133,19 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
   console.log("customQuery before url: ", customQuery);
   console.log("allRevincludeParams.length: ", allRevincludeParams.length);
   const url =
-    allRevincludeParams.length > 0
-      ? clientState.endpoint.fhirBaseUrl +
-        subIn(relativeUrl) +
-        "&" + 
-        customQuery // ... when there is a query in the url
+		  // this was used when I was adding a _revinclude
+			// allRevincludeParams.length > 0
+      // ? clientState.endpoint.fhirBaseUrl +
+      //   subIn(relativeUrl) +
+      //   "&" + 
+      //   customQuery // ... when there is a query in the url
+			//
+			// no "?" if patientQuery
+			query.length === 0  // empty object like patientSearchQuery
+				? clientState.endpoint.fhirBaseUrl +
+        subIn(relativeUrl)  // +
+        // "&" + 
+        // customQuery // ... when there is a query in the url
       : clientState.endpoint.fhirBaseUrl +
         subIn(relativeUrl) +
         "?" +
