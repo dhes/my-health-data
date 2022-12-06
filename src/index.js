@@ -148,6 +148,8 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
     );
   console.log("relativeUrl: ", relativeUrl);
   console.log("subIn(relativeUrl: ", subIn(relativeUrl));
+	console.log('clientState.endpoint.fhirBaseUrl: ', clientState.endpoint.fhirBaseUrl)
+	// console.log('clientState.endpoint: ', clientState.endpoint)
   Object.keys(query).length === 0 // empty object like patientSearchQuery
     ? clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) // +
     : // "&" +
