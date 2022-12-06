@@ -139,9 +139,9 @@ const fhirGet = async (clientState, relativeUrl, queryIn = {}) => {
         "&" + 
         customQuery // ... when there is a query in the url
       : clientState.endpoint.fhirBaseUrl +
-        subIn(relativeUrl) // +
-        // "?" +
-        // queryString.stringify(query) // ... when using patientSearchQueries
+        subIn(relativeUrl) +
+        "?" +
+        queryString.stringify(query) // ... when using patientSearchQueries
   // const url = clientState.endpoint.fhirBaseUrl + subIn(relativeUrl) + '/$everything'  // this produces an error on epic
   console.log("url: " + url);
   return fhirInteraction(clientState, "GET", url);
