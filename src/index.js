@@ -229,13 +229,13 @@ makeClient(fhirServerToTest).then(async (c) => {
     },
   ];
 
-  // const patientReadQueries = [["Patient/{{patient}}"]];   // this produces a patient resource
-  const patientReadQueries = [["Patient?_id={{patient}}"]];  // this produces a bundle
-  // const patientReadQueries = [["?_type=AllergyIntolerance,Condition&subject:Patient={{patient}}"]];  // what will this one do?
-
+  // // const patientReadQueries = [["Patient/{{patient}}"]];   // this produces a patient resource
+  // const patientReadQueries = [["Patient?_id={{patient}}"]];  // this produces a bundle
+  // // const patientReadQueries = [["?_type=AllergyIntolerance,Condition&subject:Patient={{patient}}"]];  // what will this one do?
 
   const patientSearchQueries = [
     // all comments relate to epic sandbox
+    ["Patient"],
     [
       "Observation",
       {
@@ -314,11 +314,13 @@ makeClient(fhirServerToTest).then(async (c) => {
   //     queryString.stringify({ foo: ["Patient/{{patient}}"] })
   // );
 
-  const queries = // DH
-    allRevincludeParams.length > 0 // DH
-      ? patientReadQueries // DH
-      : patientReadQueries.concat(patientSearchQueries); // DH
-  // const queries = patientReadQueries // DH sometimes useful for testing// DH
+  // const queries = // DH
+  //   allRevincludeParams.length > 0 // DH
+  //     ? patientReadQueries // DH
+  //     : patientReadQueries.concat(patientSearchQueries); // DH
+  // // const queries = patientReadQueries // DH sometimes useful for testing// DH
+
+  const queries = patientSearchQueries;
 
   console.log("queries: ", queries);
 
