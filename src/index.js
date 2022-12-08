@@ -3,25 +3,15 @@ import smart, { matchTags } from "./smart.js";
 import queryString from "query-string";
 import endpoints from "./endpoints.js";
 
-// console.log("window.location.href: " + window.location.href);
-// const customQueryStrings = ["_type=Condition"]; // DH
 const urlParams = new URLSearchParams(window.location.search); // DH
 console.log("urlParams: ", urlParams); // DH
 console.log("urlParams.get('type'): ", urlParams.get("type")); // DH
 console.log("urlParams.getAll('type'): ", urlParams.getAll("type"));
-// let allTypeParams = urlParams.getAll("type");
 let allRevincludeParams = urlParams.getAll("revinclude");
-// console.log("allTypeParams: ", allTypeParams);
-// console.log("allTypeParams.length > 0 : ", allTypeParams.length > 0);
-// console.log("urlParams['qs']: ", urlParams['qs']) // DH
-// let customQuery = "_type=" + allTypeParams.join(","); // this query is ignored on Epic
 let customQuery = "_revinclude=" + allRevincludeParams.join("&"); //
 console.log("customQuery: ", customQuery);
 
 let l = window.location;
-// const redirectUri = window.location.href // url of the current page
-//   .replace('index.html', 'redirect.html') // doesn't work if you add a query
-//   .replace(/#.*/, '')                     // doesn't work if you add a query
 const redirectUri =
   l.protocol +
   "//" +
@@ -229,13 +219,13 @@ makeClient(fhirServerToTest).then(async (c) => {
     },
   ];
 
-  // // const patientReadQueries = [["Patient/{{patient}}"]];   // this produces a patient resource
-  // const patientReadQueries = [["Patient?_id={{patient}}"]];  // this produces a bundle
-  // // const patientReadQueries = [["?_type=AllergyIntolerance,Condition&subject:Patient={{patient}}"]];  // what will this one do?
+  // const patientReadQueries = [["Patient/{{patient}}"]];   // this produces a patient resource
+  const patientReadQueries = [["Patient?_id={{patient}}"]]; // this produces a bundle
+  // const patientReadQueries = [["?_type=AllergyIntolerance,Condition&subject:Patient={{patient}}"]];  // what will this one do?
 
   const patientSearchQueries = [
     // all comments relate to epic sandbox
-    ["Patient"],
+    // ["Patient"],  // this will trigger an OperationOutcome complaint: Patient is ignored
     [
       "Observation",
       {
@@ -301,30 +291,19 @@ makeClient(fhirServerToTest).then(async (c) => {
     // ['PractitionerRole'], // -> bad request
   ].map(withPatient);
 
-  // console.log(
-  //   "stringify ['Patient/{{patient}}']: " +
-  //     queryString.stringify(["Patient/{{patient}}"])
-  // );
-  // console.log(
-  //   "stringify 'Patient/{{patient}']: " +
-  //     queryString.stringify("Patient/{{patient}}")
-  // );
-  // console.log(
-  //   "stringify {foo: ['Patient/{{patient}}']}: " +
-  //     queryString.stringify({ foo: ["Patient/{{patient}}"] })
-  // );
 
-  // const queries = // DH
+  // this can be useful if you need to pass parameters through the url
+	// const queries = // DH
   //   allRevincludeParams.length > 0 // DH
   //     ? patientReadQueries // DH
   //     : patientReadQueries.concat(patientSearchQueries); // DH
-  // // const queries = patientReadQueries // DH sometimes useful for testing// DH
 
-  const queries = patientSearchQueries;
+  const queries = patientReadQueries.concat(patientSearchQueries); // DH
+
+  // const queries = patientReadQueries // DH sometimes useful for testing// DH
 
   console.log("queries: ", queries);
 
-  // const queries = patientReadQueries // DH that worked, got the Patient resource and of course nothing else.
   const pending = queries
     .map((args) => client.get(...args))
     .map(client.drainPages);
