@@ -23,6 +23,12 @@ const sandboxEndpoints = [{
 	tags: ['sandbox', 'cerner']
 }]
 
+const manualEndpoints = [{
+    fhirBaseUrl: 'https://mobileapps.queens.org/FHIR/MYCHART/api/FHIR/R4/',
+    name: "The Queen's Health Systems R4",
+    tags: ['production', 'epic']
+}]
+
 const epicProductionEndpoints = epicEndpointsJson
     .Entries.map(e => ({
         fhirBaseUrl: e.FHIRPatientFacingURI,
@@ -38,5 +44,5 @@ const cernerProductionEndpoints = cernerEndpointsJson
     }))
 
 // const endpoints = sandboxEndpoints.concat(epicProductionEndpoints).concat(cernerEndpointsJson)
-const endpoints = sandboxEndpoints.concat(epicProductionEndpoints, cernerProductionEndpoints)
+const endpoints = sandboxEndpoints.concat(manualEndpoints, epicProductionEndpoints, cernerProductionEndpoints)
 export default endpoints

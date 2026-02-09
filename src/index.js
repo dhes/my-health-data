@@ -68,18 +68,13 @@ console.log("endpoints: ", endpoints);
 // console.log("endpoints[1]: ", endpoints[1]);
 // console.log("endpoints[1].fhirBaseUrl: " + endpoints[1].fhirBaseUrl);
 // Eventually we'll have a UI
-let serverPick = window.location.hash.slice(1) || "smart";
+let serverPick = window.location.hash.slice(1) || "epicQueens";
 let fhirServerToTest = {
   smart: endpoints[0].fhirBaseUrl, // smart sandbox
   // epic: endpoints[1].fhirBaseUrl, //older argonaut epic sandbox endpoint
   epicSandbox: endpoints[2].fhirBaseUrl, //newer epic sandbox endpoint added by dan
   cernerSandbox: endpoints[4].fhirBaseUrl,
-  cernerProduction: endpoints[447].fhirBaseUrl,
-  // Epic Queen's DSTU2 368
-  // Epic Queen's R4 369
-  // Epic HPH 446
-  epicQueens: endpoints[369].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
-  epicHph: endpoints[446].fhirBaseUrl, //epic R4 production endpoint manually added to epic.json by Dan
+  epicQueens: endpoints[5].fhirBaseUrl, // Queen's Health Systems R4 - hardcoded in endpoints.js
   // unity: 'https://epicfhir.unitypoint.org/ProdFHIR/api/FHIR/DSTU2/',
   // uw: 'https://epicproxy.hosp.wisc.edu/FhirProxy/api/FHIR/DSTU2/'
 }[serverPick];
