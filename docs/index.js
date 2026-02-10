@@ -8,6 +8,7 @@ const SERVERS = {
   epicSandbox:    endpoints[2], // Epic Sandbox R4
   cernerSandbox:  endpoints[4], // Cerner Sandbox R4
   epicQueens:     endpoints[5], // Queen's Health Systems R4
+  epicHph:        endpoints[6], // Hawaii Pacific Health R4
 };
 
 const CLIENT_IDS = [

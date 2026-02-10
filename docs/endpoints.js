@@ -32,6 +32,11 @@ const endpoints = [
     fhirBaseUrl: 'https://mobileapps.queens.org/FHIR/MYCHART/api/FHIR/R4/',
     tags: ['production', 'epic'],
   },
+  {
+    name: 'Hawaii Pacific Health R4',
+    fhirBaseUrl: 'https://webservices.hawaiipacifichealth.org/fhir/api/FHIR/R4/',
+    tags: ['production', 'epic'],
+  },
 ];
 
 export default endpoints;
